@@ -49,13 +49,20 @@ function App() {
         <h2 className="para-length">
           <span className="length">{text.length}</span> paragraphs generated.
         </h2>
-        {text.map((txt, index) => {
-          return (
-            <p key={index} className="text">
-              {txt}
-            </p>
-          );
-        })}
+
+        {text.length === 0 && <p className="text">{data[0]}</p>}
+
+        {text.length > 0 && (
+          <div>
+            {text.map((txt, index) => {
+              return (
+                <p key={index} className="text">
+                  {txt}
+                </p>
+              );
+            })}
+          </div>
+        )}
       </article>
     </div>
   );
